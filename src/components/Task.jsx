@@ -1,10 +1,11 @@
 import React from 'react';
 
-function Task(){
+function Task(props){
+    const {text,category}=props
     return(
         <div>
-            <div>Category</div>
-            <div>Text</div>
+            <div>{category}</div>
+            <div>{text}</div>
             <button>X</button>
         </div>
     )

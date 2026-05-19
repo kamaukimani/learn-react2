@@ -4,11 +4,13 @@ import Task from './Task';
 function TaskList({tasks}){
     //console.log(tasks)
     const oldTasks=tasks.map((task,index)=>(
-        <Task key={index} text={task.text} category={task.category} />
+        <li key={index}><Task  text={task.text} category={task.category} /></li>
     ))
     return(
         <div>
-            {oldTasks}
+            <ol>
+                {oldTasks}
+            </ol>
         </div>
     )
 }

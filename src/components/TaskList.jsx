@@ -1,10 +1,16 @@
-import React from 'react';
+import React,{useState} from 'react';
 import Task from './Task';
 
 function TaskList({tasks}){
+    const [isTask,setIsTask]=useState(tasks)
+    //console.log(isTask);
     //console.log(tasks)
-    const oldTasks=tasks.map((task,index)=>(
-        <li key={index}><Task  text={task.text} category={task.category} /></li>
+    function handleDelete(index){
+        const updated=isTask.filter((_,i)=>i !=index)
+        setIsTask(updated);
+    }
+    const oldTasks=isTask.map((task,index)=>(
+        <li key={index}><Task  text={task.text} category={task.category} handleDelete={()=>handleDelete(index)}/></li>
     ))
     return(
         <div>

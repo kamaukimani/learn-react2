@@ -16,7 +16,7 @@ function App(){
             <h2>My Tasks</h2>
             <CategoryFilter />
             <NewTaskForm />
-            <TaskList />
+            <TaskList tasks={TASKS}/>
         </div>
     )
 }

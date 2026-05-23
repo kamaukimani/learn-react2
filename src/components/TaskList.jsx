@@ -1,8 +1,8 @@
 import React,{useState} from 'react';
 import Task from './Task';
 
-function TaskList({tasks}){
-    const [isTask,setIsTask]=useState(tasks)
+function TaskList({isTask,setIsTask}){
+    
     //console.log(isTask);
     //console.log(tasks)
     function handleDelete(index){

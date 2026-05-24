@@ -6,6 +6,8 @@ import CategoryFilter from './CategoryFilter';
 import Header from './Header';
 import Video from './Video';
 import FoxImage from './FoxImage';
+import NewTodo from './NewTodo';
+import TodoList from './TodoList';
 function App(){
     const [isDark,setIsDark]=useState(false);
     const [isTask,setIsTask]=useState(TASKS)
@@ -27,6 +29,8 @@ function App(){
             <TaskList isTask={itemsToDisplay} setIsTask={setIsTask}/>
             <Video />
             <FoxImage />
+            <NewTodo />
+            <TodoList />
         </div>
     )
 }

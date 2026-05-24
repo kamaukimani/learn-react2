@@ -4,6 +4,7 @@ import TaskList from './TaskList';
 import NewTaskForm from './NewTaskForm';
 import CategoryFilter from './CategoryFilter';
 import Header from './Header';
+import Video from './Video';
 function App(){
     const [isDark,setIsDark]=useState(false);
     const [isTask,setIsTask]=useState(TASKS)
@@ -23,6 +24,7 @@ function App(){
             <CategoryFilter categories={CATEGORIES} setFilterBy={setFilterBy}/>
             <NewTaskForm categories={CATEGORIES} isTask={isTask} setIsTask={setIsTask}/>
             <TaskList isTask={itemsToDisplay} setIsTask={setIsTask}/>
+            <Video />
         </div>
     )
 }

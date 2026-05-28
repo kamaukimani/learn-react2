@@ -1,19 +1,25 @@
 {
   "todos": [
-    { 
-        "id": 1, 
-        "description": "Create a new todo", 
-        "completed": false 
+    {
+      "id": "1",
+      "description": "Create a new todo",
+      "completed": true
     },
-    { 
-        "id": 2, 
-        "description": "Update an existing todo", 
-        "completed": false 
+    {
+      "id": "2",
+      "description": "Update an existing todo",
+      "completed": true
     },
-    { 
-        "id": 3, 
-        "description": "Delete an existing todo", 
-        "completed": false 
+    {
+      "id": "3",
+      "description": "Delete an existing todo",
+      "completed": true
+    },
+    {
+      "description": "Revisiting it again",
+      "completed": false,
+      "id": "QkxtQnaptms"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

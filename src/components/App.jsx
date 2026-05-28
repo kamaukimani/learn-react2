@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useEffect,useState} from 'react';
 import {CATEGORIES,TASKS} from '../data'
 import TaskList from './TaskList';
 import NewTaskForm from './NewTaskForm';
@@ -11,6 +11,32 @@ import TodoList from './TodoList';
 function App(){
     const [isDark,setIsDark]=useState(false);
     const [isTask,setIsTask]=useState(TASKS)
+    const [todos,setTodos]=useState([])
+    useEffect(()=>{
+        fetch("http://localhost:3000/todos")
+        .then(res=>res.json())
+        .then(data=>setTodos(data)
+    )
+    },[])
+    //console.log(todos)
+    function addTodo(newTodo){
+        const updatedTodos=[...todos,newTodo]
+        setTodos(updatedTodos)
+    }
+    function deleteTodo(id){
+        const updatedTodos=todos.filter(todo=>todo.id !== id)
+        setTodos(updatedTodos)
+    }
+    function updateTodo(id,completed){
+        const updatedTodos=todos.map(todo=>{
+            if(todo.id === id){
+                return {...todo,completed}
+            }else{
+                return todo
+            }
+        })
+        setTodos(updatedTodos)
+    }
     function handleDarkMode(){
         setIsDark(isDark=>!isDark)
     }
@@ -29,8 +55,8 @@ function App(){
             <TaskList isTask={itemsToDisplay} setIsTask={setIsTask}/>
             <Video />
             <FoxImage />
-            <NewTodo />
-            <TodoList />
+            <NewTodo  onAddTodo={addTodo}/>
+            <TodoList todos={todos} onDeleteTodo={deleteTodo} onUpdateTodo={updateTodo}/>
         </div>
     )
 }

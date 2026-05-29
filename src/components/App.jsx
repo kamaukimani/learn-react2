@@ -12,6 +12,13 @@ function App(){
     const [isDark,setIsDark]=useState(false);
     const [isTask,setIsTask]=useState(TASKS)
     const [todos,setTodos]=useState([])
+    const [text,setText]=useState("")
+    useEffect(()=>{
+        document.title=text
+    },[text])
+    // useEffect(()=>{
+    //     setTimeout(()=>setText(""),5000)
+    // })
     useEffect(()=>{
         fetch("http://localhost:3000/todos")
         .then(res=>res.json())
@@ -57,6 +64,12 @@ function App(){
             <FoxImage />
             <NewTodo  onAddTodo={addTodo}/>
             <TodoList todos={todos} onDeleteTodo={deleteTodo} onUpdateTodo={updateTodo}/>
+            <input 
+                type="text"
+                placeholder="Type away..."
+                value={text}
+                onChange={(e=>setText(e.target.value))}
+            />
         </div>
     )
 }
